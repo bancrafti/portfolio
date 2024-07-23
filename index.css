@@ -1,0 +1,38 @@
+/* Ensure the body takes up the full width */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the navigation bar */
+.navbar {
+  background-color: black; /* Change background color to black */
+  padding: 10px 20px;
+}
+
+/* Align the navigation list to the right */
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end; /* Aligns items to the right */
+}
+
+/* Style each navigation item */
+.nav-item {
+  margin-left: 30px; /* Increase margin to space out the titles */
+}
+
+/* Style the links */
+.nav-item a {
+  text-decoration: none;
+  color: white; /* Change text color to white */
+  font-size: 16px;
+}
+
+/* Add hover effect */
+.nav-item a:hover {
+  color: #007bff; /* Optional: Change color on hover */
+}
