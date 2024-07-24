@@ -7,8 +7,9 @@ body {
 
 /* Style the navigation bar */
 .navbar {
-  background-color: black; /* Change background color to black */
-  padding: 10px 20px;
+  background-color: #333; /* Dark background color */
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
 }
 
 /* Align the navigation list to the right */
@@ -22,17 +23,20 @@ body {
 
 /* Style each navigation item */
 .nav-item {
-  margin-left: 30px; /* Increase margin to space out the titles */
+  margin-left: 30px; /* Space out the titles */
 }
 
 /* Style the links */
 .nav-item a {
   text-decoration: none;
-  color: white; /* Change text color to white */
-  font-size: 16px;
+  color: white; /* White text color */
+  font-size: 18px; /* Larger font size */
+  padding: 10px 15px; /* Add padding for clickable area */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
-/* Add hover effect */
+/* Hover effect for links */
 .nav-item a:hover {
-  color: #007bff; /* Optional: Change color on hover */
+  background-color: #575757; /* Slightly lighter background on hover */
 }
