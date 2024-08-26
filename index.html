@@ -1,51 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">MyBrand</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Welcome to MyBrand</h1>
-            <p>Your success starts here.</p>
-            <button onclick="scrollToFeatures()">Learn More</button>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <h2>Features</h2>
-        <div class="feature-item">
-            <h3>Feature One</h3>
-            <p>Detail about feature one.</p>
-        </div>
-        <div class="feature-item">
-            <h3>Feature Two</h3>
-            <p>Detail about feature two.</p>
-        </div>
-        <div class="feature-item">
-            <h3>Feature Three</h3>
-            <p>Detail about feature three.</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 MyBrand. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyVue</title>
+  </head>
+  <body>
+    <h1>Hello Waribu</h1>
+    <div id="app">
+      <p v-if="message.length % 2 ===0">Even: {{message}}</p>
+      <p v-else>Odd {{message.toUppercase()}}</p>
+      <ul>
+        <li v-for="number in listOfNumbers">{{number}}</li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp } = Vue;
+      const app = createApp({
+        data() {
+          return {
+            message: "Hello it works",
+            listOfNumbers: [1, 2, 3, 4, 5, 6],
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
 </html>
