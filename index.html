@@ -21,6 +21,7 @@
       <p>{{count}}</p>
       <button v-on:click="incrementCount">Increment Count</button>
       <h1>{{incrementAmount}}</h1>
+
       <div>
         <label for="incrementAmount">Increment by: </label>
         <input
@@ -29,6 +30,23 @@
           v-bind:value="incrementAmount"
           v-on:input="changeIncrementAmount"
         />
+      </div>
+      <hr />
+      <h1>How I Met Your Mother</h1>
+      <div>
+        <ul>
+          <li v-for="character in characters">
+            <p>{{character}}</p>
+            <button v-on:click="favouriteCharacter(character)">
+              Favourite
+            </button>
+          </li>
+        </ul>
+        <ul v-if="favouriteList.length > 0">
+          <h2>Favourite Characters</h2>
+          <li v-for="character in favouriteList">{{character}}</li>
+        </ul>
+        <p v-else>No Characters</p>
       </div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -42,11 +60,16 @@
             incrementAmount: 8,
             message: "Hello it works",
             listOfNumbers: [1, 2, 3, 4, 5, 6],
+            characters: ["Barney", "Ted", "Marshal", "Lilly"],
+            favouriteList: [],
           };
         },
         methods: {
           incrementCount() {
             this.count += this.incrementAmount;
+          },
+          favouriteCharacter(character) {
+            this.favouriteList.push(character);
           },
         },
       });
