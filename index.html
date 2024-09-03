@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyVue</title>
   </head>
@@ -17,10 +17,11 @@
 
       <hr />
 
-      <h1>Counter</h1>
+      <h1>{{displayTitle}}</h1>
       <p>{{count}}</p>
       <button v-on:click="incrementCount">Increment Count</button>
       <h1>{{incrementAmount}}</h1>
+      <p>{{optimizedIncrementAmount}}</p>
 
       <div>
         <label for="incrementAmount">Increment by: </label>
@@ -36,7 +37,7 @@
       <div>
         <ul>
           <li v-for="character in characters">
-            <p>{{character}}</p>
+            <p>{{character.name}}</p>
             <button v-on:click="favouriteCharacter(character)">
               Favourite
             </button>
@@ -53,7 +54,16 @@
         </pre>
       </div>
       <label for="character-name">Name</label>
-      <input type="text" v-model="newCharacter.name" @keyup.enter="addNewCharacter"/> 
+      <input
+        type="text"
+        v-model="newCharacter.name"
+        @keyup.enter="addNewCharacter"
+      />
+      <h2>Character Statistics</h2>
+      <ul>
+        <li>Red: {{redFavors.length}}</li>
+        <li v-for="stat in col">{{stat}}</li>
+      </ul>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -63,19 +73,82 @@
         data() {
           return {
             count: 10,
+            counterTitle: "Counter standard",
             incrementAmount: 8,
             message: "Hello it works",
             listOfNumbers: [1, 2, 3, 4, 5, 6],
-            characters: ["Barney", "Ted", "Marshal", "Lilly"],
+            characters: [
+              {
+                name: "Barney",
+                favColor: ["blue", "black"],
+              },
+              {
+                name: "Ted",
+                favColor: ["blue", "green", "yellow"],
+              },
+              {
+                name: "Marshal",
+                favColor: ["blue", "grey", "white"],
+              },
+              {
+                name: "Lilly",
+                favColor: ["red", "white", "pink"],
+              },
+            ],
             favouriteList: [],
             newCharacter: {
               name: "",
             },
           };
         },
+        computed: {
+          displayTitle() {
+            if (this.count > 20) {
+              return "Counter Standard - Very Long";
+            } else {
+              return "Counter Standard";
+            }
+          },
+          optimizedIncrementAmount() {
+            return this.displayTitle.length * this.incrementAmount;
+          },
+          redFavors() {
+            return this.characters.filter(
+              (character) => character.favColor.indexOf("red") > -1
+            );
+          },
+          colorStats() {
+            const elements = [
+              "red",
+              "blue",
+              "green",
+              "yellow",
+              "white",
+              "pink",
+              "black",
+            ];
+            const statistics = {
+              Red: 0,
+              Blue: 0,
+              Green: 0,
+              Yellow: 0,
+              White: 0,
+              Pink: 0,
+              Black: 0,
+            };
+            this.characters.forEach((character) => {
+              elements.forEach((element) => {
+                if (character.element.indexOf(element) > -1) {
+                  statistics[element] += 1;
+                }
+              });
+            });
+            return statistics
+          },
+        },
         methods: {
           incrementCount() {
-            this.count += this.incrementAmount;
+            this.count += this.optimizedIncrementAmount;
           },
           favouriteCharacter(character) {
             this.favouriteList.push(character);
@@ -86,6 +159,14 @@
           },
           changeIncrementAmount(event) {
             this.incrementAmount = parseInt(event.target.value);
+          },
+        },
+        watch: {
+          count(newValue) {
+            if (newValue > 20) {
+              this.counterTitle += "very long value";
+            }
+            console.log(newValue);
           },
         },
       });
