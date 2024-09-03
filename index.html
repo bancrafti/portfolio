@@ -9,8 +9,8 @@
   <body>
     <h1>Hello Waribu</h1>
     <div id="app">
-      <p v-if="message.length % 2 ===0">Even: {{message}}</p>
-      <p v-else>Odd {{message.toUppercase()}}</p>
+      <p v-if="message.length % 2 === 0">Even: {{message}}</p>
+      <p v-else>Odd {{message.toUpperCase()}}</p>
       <ul>
         <li v-for="number in listOfNumbers">{{number}}</li>
       </ul>
@@ -47,7 +47,13 @@
           <li v-for="character in favouriteList">{{character}}</li>
         </ul>
         <p v-else>No Characters</p>
+        <h2>New Character</h2>
+        <pre>
+          {{newCharacter}}
+        </pre>
       </div>
+      <label for="character-name">Name</label>
+      <input type="text" v-model="newCharacter.name" @keyup.enter="addNewCharacter"/> 
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -62,6 +68,9 @@
             listOfNumbers: [1, 2, 3, 4, 5, 6],
             characters: ["Barney", "Ted", "Marshal", "Lilly"],
             favouriteList: [],
+            newCharacter: {
+              name: "",
+            },
           };
         },
         methods: {
@@ -70,6 +79,13 @@
           },
           favouriteCharacter(character) {
             this.favouriteList.push(character);
+          },
+          addNewCharacter() {
+            this.characters.push(this.newCharacter.name);
+            this.newCharacter.name = ""; // Clear the input after adding
+          },
+          changeIncrementAmount(event) {
+            this.incrementAmount = parseInt(event.target.value);
           },
         },
       });
