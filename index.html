@@ -45,13 +45,13 @@
         </ul>
         <ul v-if="favouriteList.length > 0">
           <h2>Favourite Characters</h2>
-          <li v-for="character in favouriteList">{{character}}</li>
+          <li v-for="character in favouriteList">{{character.name}}</li>
         </ul>
         <p v-else>No Characters</p>
         <h2>New Character</h2>
-        <pre>
+        <p>
           {{newCharacter}}
-        </pre>
+        </p>
       </div>
       <label for="character-name">Name</label>
       <input
@@ -61,8 +61,7 @@
       />
       <h2>Character Statistics</h2>
       <ul>
-        <li>Red: {{redFavors.length}}</li>
-        <li v-for="stat in col">{{stat}}</li>
+        <li v-for="(value, key) in colorStats">{{key}}: {{value}}</li>
       </ul>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -138,12 +137,14 @@
             };
             this.characters.forEach((character) => {
               elements.forEach((element) => {
-                if (character.element.indexOf(element) > -1) {
-                  statistics[element] += 1;
+                if (character.favColor.indexOf(element) > -1) {
+                  statistics[
+                    element.charAt(0).toUpperCase() + element.slice(1)
+                  ] += 1;
                 }
               });
             });
-            return statistics
+            return statistics;
           },
         },
         methods: {
