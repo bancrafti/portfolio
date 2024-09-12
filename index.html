@@ -1,177 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyVue</title>
-  </head>
-  <body>
-    <h1>Hello Waribu</h1>
-    <div id="app">
-      <p v-if="message.length % 2 === 0">Even: {{message}}</p>
-      <p v-else>Odd {{message.toUpperCase()}}</p>
-      <ul>
-        <li v-for="number in listOfNumbers">{{number}}</li>
-      </ul>
-
-      <hr />
-
-      <h1>{{displayTitle}}</h1>
-      <p>{{count}}</p>
-      <button v-on:click="incrementCount">Increment Count</button>
-      <h1>{{incrementAmount}}</h1>
-      <p>{{optimizedIncrementAmount}}</p>
-
-      <div>
-        <label for="incrementAmount">Increment by: </label>
-        <input
-          type="number"
-          v-model="incrementAmount"
-          v-bind:value="incrementAmount"
-          v-on:input="changeIncrementAmount"
-        />
-      </div>
-      <hr />
-      <h1>How I Met Your Mother</h1>
-      <div>
-        <ul>
-          <li v-for="character in characters">
-            <p>{{character.name}}</p>
-            <button v-on:click="favouriteCharacter(character)">
-              Favourite
-            </button>
-          </li>
-        </ul>
-        <ul v-if="favouriteList.length > 0">
-          <h2>Favourite Characters</h2>
-          <li v-for="character in favouriteList">{{character.name}}</li>
-        </ul>
-        <p v-else>No Characters</p>
-        <h2>New Character</h2>
-        <p>
-          {{newCharacter}}
-        </p>
-      </div>
-      <label for="character-name">Name</label>
-      <input
-        type="text"
-        v-model="newCharacter.name"
-        @keyup.enter="addNewCharacter"
-      />
-      <h2>Character Statistics</h2>
-      <ul>
-        <li v-for="(value, key) in colorStats">{{key}}: {{value}}</li>
-      </ul>
-    </div>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-      const { createApp } = Vue;
-
-      const app = createApp({
-        data() {
-          return {
-            count: 10,
-            counterTitle: "Counter standard",
-            incrementAmount: 8,
-            message: "Hello it works",
-            listOfNumbers: [1, 2, 3, 4, 5, 6],
-            characters: [
-              {
-                name: "Barney",
-                favColor: ["blue", "black"],
-              },
-              {
-                name: "Ted",
-                favColor: ["blue", "green", "yellow"],
-              },
-              {
-                name: "Marshal",
-                favColor: ["blue", "grey", "white"],
-              },
-              {
-                name: "Lilly",
-                favColor: ["red", "white", "pink"],
-              },
-            ],
-            favouriteList: [],
-            newCharacter: {
-              name: "",
-            },
-          };
-        },
-        computed: {
-          displayTitle() {
-            if (this.count > 20) {
-              return "Counter Standard - Very Long";
-            } else {
-              return "Counter Standard";
-            }
-          },
-          optimizedIncrementAmount() {
-            return this.displayTitle.length * this.incrementAmount;
-          },
-          redFavors() {
-            return this.characters.filter(
-              (character) => character.favColor.indexOf("red") > -1
-            );
-          },
-          colorStats() {
-            const elements = [
-              "red",
-              "blue",
-              "green",
-              "yellow",
-              "white",
-              "pink",
-              "black",
-            ];
-            const statistics = {
-              Red: 0,
-              Blue: 0,
-              Green: 0,
-              Yellow: 0,
-              White: 0,
-              Pink: 0,
-              Black: 0,
-            };
-            this.characters.forEach((character) => {
-              elements.forEach((element) => {
-                if (character.favColor.indexOf(element) > -1) {
-                  statistics[
-                    element.charAt(0).toUpperCase() + element.slice(1)
-                  ] += 1;
-                }
-              });
-            });
-            return statistics;
-          },
-        },
-        methods: {
-          incrementCount() {
-            this.count += this.optimizedIncrementAmount;
-          },
-          favouriteCharacter(character) {
-            this.favouriteList.push(character);
-          },
-          addNewCharacter() {
-            this.characters.push(this.newCharacter.name);
-            this.newCharacter.name = ""; // Clear the input after adding
-          },
-          changeIncrementAmount(event) {
-            this.incrementAmount = parseInt(event.target.value);
-          },
-        },
-        watch: {
-          count(newValue) {
-            if (newValue > 20) {
-              this.counterTitle += "very long value";
-            }
-            console.log(newValue);
-          },
-        },
-      });
-      app.mount("#app");
-    </script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waribu's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Waribu</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Hello! I'm Waribu, a passionate software developer with over 15 years of experience. I specialize in creating dynamic and beautiful web applications.</p>
+        </div>
+    </section>
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <div class="portfolio-items">
+                <div class="portfolio-item">
+                    <img src="project1.jpg" alt="Project 1">
+                    <h3>Project 1</h3>
+                    <p>A brief description of Project 1.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="project2.jpg" alt="Project 2">
+                    <h3>Project 2</h3>
+                    <p>A brief description of Project 2.</p>
+                </div>
+                <!-- Add more portfolio items as needed -->
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you'd like to get in touch, please email me at <a href="mailto:waribu@example.com">waribu@example.com</a>.</p>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Waribu. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
 </html>
