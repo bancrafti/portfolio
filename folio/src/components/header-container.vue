@@ -1,6 +1,6 @@
 <template>
     <div class="header-container">
-        <h1>WARIBU</h1>
+        <h1>Waribu</h1>
         <nav class="nav-links">
             <a href="#projects">PROJECTS</a>
             <a href="#about">ABOUT</a>
@@ -15,7 +15,7 @@
 <style scoped>
 .header-container {
     border-radius: var(--Rounded, 20px);
-    background: var(--Primary, #FADCD9);
+    background: var(--Primary, #000000);
     display: flex;
     width: calc(100% - 24px);
     max-width: calc(100% - 40px);
@@ -34,10 +34,10 @@
 }
 
 .header-container h1 {
-    font-family: 'Arial', sans-serif;
+    font-family: 'monospace';
     font-size: 2rem;
     font-weight: bold;
-    color: var(--Text, #000);
+    color: var(--Text, #fdfdfd);
 }
 
 .nav-links {
@@ -47,7 +47,7 @@
 
 .nav-links a {
     text-decoration: none;
-    color: var(--Text, #000);
+    color: var(--Text, #ffffff);
     font-family: 'Arial', sans-serif;
     font-size: 1.25rem;
     font-weight: 500;
