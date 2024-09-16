@@ -1,11 +1,13 @@
 <template>
     <div class="header-container">
-        <h1>Waribu</h1>
+        <h1>WARIBU</h1>
         <nav class="nav-links">
             <a href="#projects">PROJECTS</a>
             <a href="#about">ABOUT</a>
             <a href="#contact">CONTACT</a>
         </nav>
+    </div>
+    <div class="work-container">
     </div>
 </template>
 
@@ -15,7 +17,7 @@
 <style scoped>
 .header-container {
     border-radius: var(--Rounded, 20px);
-    background: var(--Primary, #000000);
+    background: var(--Primary, #646464);
     display: flex;
     width: calc(100% - 24px);
     max-width: calc(100% - 40px);
@@ -34,10 +36,10 @@
 }
 
 .header-container h1 {
-    font-family: 'monospace';
+    font-family: 'Sans', serif;
     font-size: 2rem;
     font-weight: bold;
-    color: var(--Text, #fdfdfd);
+    color: var(--Text, #ffffff);
 }
 
 .nav-links {
@@ -53,6 +55,8 @@
     font-weight: 500;
     text-transform: uppercase;
 }
+
+
 
 @media (max-width: 768px) {
     .header-container {
@@ -75,5 +79,6 @@
         justify-content: space-around;
         margin-top: 10px;
     }
+
 }
 </style>
