@@ -17,7 +17,7 @@
 <style scoped>
 .header-container {
     border-radius: var(--Rounded, 20px);
-    background: var(--Primary, #646464);
+    background: var(--Primary, #000000);
     display: flex;
     width: calc(100% - 24px);
     max-width: calc(100% - 40px);
@@ -39,7 +39,7 @@
     font-family: 'Sans', serif;
     font-size: 2rem;
     font-weight: bold;
-    color: var(--Text, #ffffff);
+    color: pink;
 }
 
 .nav-links {
@@ -49,7 +49,7 @@
 
 .nav-links a {
     text-decoration: none;
-    color: var(--Text, #ffffff);
+    color: pink;
     font-family: 'Arial', sans-serif;
     font-size: 1.25rem;
     font-weight: 500;

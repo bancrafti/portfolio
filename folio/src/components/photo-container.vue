@@ -1,6 +1,6 @@
 <template>
     <div class="photo-container">
-        <img src="" alt="Photograph" class="profile-photo">
+        <img src="/home/waribu/workspace/portfolio/folio/src/assets/me.jpeg" alt="Photograph" class="profile-photo">
     </div>
 </template>
 <style scoped>
@@ -13,17 +13,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: inherit;
-    border-radius: inherit;
+    background: var(--Primary, #000000);
+    border-radius: var(--Rounded, 20px);
     padding: auto;
     box-sizing: border-box;
     flex-shrink: 0;
 }
 
 .profile-photo {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    border-radius:var(--Rounded,20px);
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 </style>
