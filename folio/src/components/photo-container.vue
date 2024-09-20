@@ -9,7 +9,7 @@
     width: 20%;
     height: 600px;
     top: 150px;
-    left: 32%;
+    left: 39%;
     display: flex;
     justify-content: center;
     align-items: center;

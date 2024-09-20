@@ -11,8 +11,8 @@
     width: 30%;
     height: 600px;
     top: 150px;
-    left: 24px;
-    right: 24px;
+    left: 200px;
+    right: 34px;
     display: flex;
     justify-content: center;
     align-items: center;
