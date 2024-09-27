@@ -23,9 +23,9 @@
     border-radius: var(--Rounded, 20px);
     background: var(--Primary, #000000);
     display: flex;
-    width: calc(100% - 40px);
-    max-width: calc(100% - 400px);
-    height: 101px;
+    width: 90vw;
+    max-width: 100vw;
+    height: 80px;
     padding: 10px 50px 0px 50px;
     justify-content: space-between;
     align-items: center;
@@ -84,10 +84,10 @@
 
 .work-container {
     position: fixed;
-    width: 30%;
-    height: 600px;
-    top: 150px;
-    left: 200px;
+    width: 33vw;
+    height: 50vh;
+    top: 120px;
+    left: 5vw;
     right: 34px;
     display: flex;
     justify-content: center;
@@ -100,7 +100,7 @@
 }
 
 .job-description {
-    font-size: 70px;
+    font-size: 48px;
     color: white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 20px;
@@ -114,10 +114,10 @@
 
 .photo-container {
     position: fixed;
-    width: 20%;
-    height: 600px;
-    top: 150px;
-    left: 39%;
+    width: 20vw;
+    height: 50vh;
+    top: 120px;
+    left: 39vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,11 +137,11 @@
 
 .project-container {
     position: fixed;
-    width: 90%;
-    max-width: 30%;
-    top: 150px;
-    bottom: 10%;
-    left: 75.1%;
+    width: 35vw;
+    max-width: 90vw;
+    top: 120px;
+    height: 65vh;
+    left: 77.5vw;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
