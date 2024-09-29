@@ -1,15 +1,17 @@
 <template>
     <div class="header-container">
         <h1>WARIBU</h1>
-        <nav class="nav-links">
+        <div class="menu-icon" @click="toggleMenu">
+            &#9776;
+        </div>
+        <nav :class="['nav-links', { 'nav-active': isMenuActive }]">
             <a href="#projects">PROJECTS</a>
             <a href="#about">ABOUT</a>
             <a href="#contact">CONTACT</a>
         </nav>
     </div>
     <div class="work-container">
-        <p class="job-description"><strong>Artist Redefining</strong> <a class="slim">Architecture</a> <strong>AI-Driven
-                Design</strong> </p>
+        <p class="job-description">Passionate and detail-oriented <a class="slim">frontend developer</a> </p>
     </div>
     <div class="photo-container">
         <img src="/home/waribu/workspace/portfolio/folio/src/assets/me.jpeg" alt="Photograph" class="profile-photo">
@@ -18,8 +20,25 @@
         <div class="project-image"><img src="" alt=""></div>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            isMenuActive: false
+        };
+    },
+    methods: {
+        toggleMenu() {
+            this.isMenuActive = !this.isMenuActive;
+        }
+    }
+};
+</script>
+
 <style scoped>
 .header-container {
+    position: relative;
     border-radius: var(--Rounded, 20px);
     background: var(--Primary, #000000);
     display: flex;
@@ -45,6 +64,15 @@
     color: pink;
 }
 
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: pink;
+    position: absolute;
+    right: 20px;
+}
+
 .nav-links {
     display: flex;
     gap: 20px;
@@ -57,6 +85,11 @@
     font-size: 1.25rem;
     font-weight: 500;
     text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: white; 
+    font-weight: bolder;
 }
 
 @media (max-width: 768px) {
@@ -75,10 +108,20 @@
         font-size: 1.5rem;
     }
 
+    .menu-icon {
+        display: block;
+    }
+
     .nav-links {
+        display: none;
+        flex-direction: column;
         width: 100%;
         justify-content: space-around;
         margin-top: 10px;
+    }
+
+    .nav-links.nav-active {
+        display: flex;
     }
 }
 
@@ -100,11 +143,10 @@
 }
 
 .job-description {
-    font-size: 48px;
+    font-size: 40px;
     color: white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 20px;
-
 }
 
 .slim {
@@ -114,10 +156,10 @@
 
 .photo-container {
     position: fixed;
-    width: 20vw;
-    height: 50vh;
+    width: 20dvw;
+    height: 50dvh;
     top: 120px;
-    left: 39vw;
+    left: 39dvw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,7 +196,6 @@
 }
 
 @media (max-width: 768px) {
-
     .work-container,
     .photo-container,
     .project-container {
