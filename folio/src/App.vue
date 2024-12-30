@@ -1,17 +1,6 @@
 <template>
-    <div class="header-container">
-        <h1>WARIBU</h1>
-        <div class="menu-icon" @click="toggleMenu">
-            &#9776;
-        </div>
-        <nav :class="['nav-links', { 'nav-active': isMenuActive }]">
-            <a href="#projects">PROJECTS</a>
-            <a href="#about">ABOUT</a>
-            <a href="#contact">CONTACT</a>
-        </nav>
-    </div>
     <div class="work-container">
-        <p class="job-description">Passionate and detail-oriented <a class="slim">frontend developer</a> </p>
+        <p class="job-description">Passionate and detail-oriented <a class="slim">software developer</a> </p>
     </div>
     <div class="photo-container">
         <img src="/home/waribu/workspace/portfolio/folio/src/assets/me.jpeg" alt="Photograph" class="profile-photo">
@@ -88,7 +77,7 @@ export default {
 }
 
 .nav-links a:hover {
-    color: white; 
+    color: white;
     font-weight: bolder;
 }
 
@@ -196,6 +185,7 @@ export default {
 }
 
 @media (max-width: 768px) {
+
     .work-container,
     .photo-container,
     .project-container {
