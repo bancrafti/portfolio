@@ -21,7 +21,7 @@
 }
 
 .profile-photo {
-    border-radius:var(--Rounded,20px);
+    border-radius: var(--Rounded, 20px);
     width: 100%;
     height: 100%;
     object-fit: cover;
