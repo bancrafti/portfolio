@@ -8,7 +8,15 @@
     <div class="project-container">
         <div class="project-image"><img src="" alt=""></div>
     </div>
+    <div class="contact-container">
+        <div class="navigation-links">
+            <a href="#">Email</a>
+            <a href="#">Github</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
 </template>
+
 
 <script>
 export default {
