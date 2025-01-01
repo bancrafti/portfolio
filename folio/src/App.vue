@@ -9,6 +9,13 @@
         <div class="project-image"><img src="" alt=""></div>
     </div>
     <div class="contact-container">
+        <div class="contact-text">Contact me</div>
+        <div class="contact-arrow">↗</div>
+    </div>
+    <div class="description-container">
+        <div class="description-text"></div>
+    </div>
+    <div class="links-container">
         <div class="navigation-links">
             <a href="#">Email</a>
             <a href="#">Github</a>
